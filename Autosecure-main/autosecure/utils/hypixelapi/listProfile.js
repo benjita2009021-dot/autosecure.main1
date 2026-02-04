@@ -54,7 +54,12 @@ module.exports = async (name, settings = { sensored: false, list: 'skyblock', pi
                 .setCustomId('p_216102874709495919')
                 .setLabel('Bedwars')
                 .setStyle(ButtonStyle.Secondary)
-                .setEmoji({ id: '1416130064608657572' })
+                .setEmoji({ id: '1416130064608657572' }),
+            new ButtonBuilder()
+                .setCustomId('p_216105999999999999')
+                .setLabel('Donut')
+                .setStyle(ButtonStyle.Primary)
+                .setEmoji('🍩')
         ),
         new ActionRowBuilder().addComponents(
             new ButtonBuilder()
