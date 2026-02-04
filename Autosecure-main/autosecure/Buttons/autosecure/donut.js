@@ -27,21 +27,14 @@ let donut = {
             const fields = [];
             fields.push({ name: 'Money', value: `${stats.money || 0}`, inline: true });
             fields.push({ name: 'Shards', value: `${stats.shards || 0}`, inline: true });
-            fields.push({ name: 'Player Kills', value: `${stats.playerKills || 0}`, inline: true });
+            fields.push({ name: 'Kills', value: `${stats.kills || 0}`, inline: true });
             fields.push({ name: 'Deaths', value: `${stats.deaths || 0}`, inline: true });
-
-            const seconds = stats.playtimeSeconds || 0;
-            const days = Math.floor(seconds / 86400);
-            const hours = Math.floor((seconds % 86400) / 3600);
-            const mins = Math.floor((seconds % 3600) / 60);
-            const playtimeStr = `${days}d ${hours}h ${mins}m`;
-            fields.push({ name: 'Playtime', value: playtimeStr, inline: true });
-
-            fields.push({ name: 'Blocks Placed', value: `${stats.blocksPlaced || 0}`, inline: true });
-            fields.push({ name: 'Blocks Broken', value: `${stats.blocksBroken || 0}`, inline: true });
-            fields.push({ name: 'Mobs Killed', value: `${stats.mobsKilled || 0}`, inline: true });
-            fields.push({ name: 'Money Spent', value: `${stats.moneySpent || 0}`, inline: true });
-            fields.push({ name: 'Money Made', value: `${stats.moneyMade || 0}`, inline: true });
+            fields.push({ name: 'Playtime', value: stats.playtimeFormatted || '0m', inline: true });
+            fields.push({ name: 'Blocks Placed', value: `${stats.placed_blocks || 0}`, inline: true });
+            fields.push({ name: 'Blocks Broken', value: `${stats.broken_blocks || 0}`, inline: true });
+            fields.push({ name: 'Mobs Killed', value: `${stats.mobs_killed || 0}`, inline: true });
+            fields.push({ name: 'Money Spent (Shop)', value: `${stats.money_spent_on_shop || 0}`, inline: true });
+            fields.push({ name: 'Money Made (Sell)', value: `${stats.money_made_from_sell || 0}`, inline: true });
 
             const embed = new EmbedBuilder()
                 .setTitle(`${username} — DonutSMP Stats`)
