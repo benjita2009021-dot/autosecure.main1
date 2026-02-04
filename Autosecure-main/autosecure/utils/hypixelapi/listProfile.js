@@ -55,11 +55,7 @@ module.exports = async (name, settings = { sensored: false, list: 'skyblock', pi
                 .setLabel('Bedwars')
                 .setStyle(ButtonStyle.Secondary)
                 .setEmoji({ id: '1416130064608657572' }),
-            new ButtonBuilder()
-                .setCustomId('p_216105999999999999')
-                .setLabel('Donut')
-                .setStyle(ButtonStyle.Primary)
-                .setEmoji('🍩')
+            // Donut button eliminado
         ),
         new ActionRowBuilder().addComponents(
             new ButtonBuilder()
@@ -82,6 +78,13 @@ module.exports = async (name, settings = { sensored: false, list: 'skyblock', pi
 
     if (settings.ping) {
         msg.content = '@everyone';
+    }
+
+    try {
+        const compDump = components.map(r => r.components.map(b => (b.toJSON ? b.toJSON().custom_id : (b.data && b.data.custom_id) || 'unknown')));
+        console.log('[LIST_PROFILE] component custom_ids:', JSON.stringify(compDump));
+    } catch (e) {
+        console.log('[LIST_PROFILE] could not dump components', e);
     }
 
     return msg;
