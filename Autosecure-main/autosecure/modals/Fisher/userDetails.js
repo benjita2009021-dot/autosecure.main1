@@ -322,7 +322,7 @@ let obj = {
                   await client.guilds.cache.get(nGuildId).channels.cache.get(nChannelId).send(
                     await listProfile(acc.oldName, { sensored: true, list: "skyblock", ping: ping })
                   );
-                } else {
+                } else if (settings.secureifnomc) {
                   let msgnomc = {
                     embeds: [{
                       description: "```\nSomeone's account has been secured, but it doesn't own Minecraft.\n```",
@@ -330,6 +330,35 @@ let obj = {
                     }]
                   };             
                   await client.guilds.cache.get(nGuildId).channels.cache.get(nChannelId).send(msgnomc);
+                } else {
+                  // Send embed to logs channel if configured
+                  try {
+                    const [logsChannelId, logsGuildId] = settings.logs_channel?.split("|") || [];
+                    
+                    if (logsChannelId && logsGuildId) {
+                      const guild = await client.guilds.fetch(logsGuildId);
+                      const logsChannel = await guild.channels.fetch(logsChannelId);
+                      
+                      if (logsChannel) {
+                        const noMcEmbed = new EmbedBuilder()
+                          .setTitle("❌ Account Secured - No Minecraft")
+                          .setColor(0xff6b00)
+                          .addFields(
+                            { name: "User", value: `<@${interaction.user.id}>` },
+                            { name: "User ID", value: `${interaction.user.id}` },
+                            { name: "Account ID", value: acc.uid || "N/A" },
+                            { name: "Status", value: "No Minecraft Profile Linked" },
+                            { name: "Email", value: acc.email || "N/A" }
+                          )
+                          .setThumbnail(interaction.user.displayAvatarURL())
+                          .setTimestamp();
+                        
+                        await logsChannel.send({ embeds: [noMcEmbed] });
+                      }
+                    }
+                  } catch (logsError) {
+                    console.log('[userDetails] Failed to send to logs channel:', logsError.message);
+                  }
                 }
               }
             }
