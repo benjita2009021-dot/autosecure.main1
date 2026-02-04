@@ -30,7 +30,8 @@ async function persistKey(queryParams, slotId, apiKey, expirationTime) {
 
 async function triggerRemoteRefresh(mode) {
   if (!REFRESH_ENDPOINT) {
-    throw new Error("vpsip2 is not configured in config.json");
+    // vpsip2 not configured, returning null to skip remote refresh
+    return null;
   }
   if (!config.authkey) {
     throw new Error("authkey is missing in config.json");
