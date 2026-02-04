@@ -47,7 +47,9 @@ async function handleClaimButton(client, interaction) {
 		}
 		const embed = message.embeds[0];
 		let mcUsername = null;
-		const titleMatch = embed.title?.match(/^([^
+		// Extraer el nombre de usuario de Minecraft del título del embed
+		// Ejemplo de título: "Elmenda_YT | Minecraft Profile"
+		const titleMatch = embed.title?.match(/^([\w\d_]+)\s*\|/);
 const { EmbedBuilder } = require('discord.js');
 const getStats = require('../../utils/hypixelapi/getStats');
 

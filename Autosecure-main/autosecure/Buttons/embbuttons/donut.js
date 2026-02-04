@@ -1,7 +1,7 @@
 const getDonutStats = require('../../utils/donutapi');
 const { EmbedBuilder } = require('discord.js');
 
-let donut = {
+// DonutSMP functionality removed as requested.
     name: 'donut',
     userOnly: true,
     callback: async (client, interaction) => {
@@ -56,4 +56,4 @@ let donut = {
     }
 };
 
-module.exports = donut;
+// Module exports removed as requested.
