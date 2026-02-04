@@ -1,8 +1,19 @@
+require('dotenv').config();
+const path = require('path');
 const { spawn, exec } = require("child_process");
 const { initializeDB, queryParams } = require("./db/database");
 const { initializeController } = require("./mainbot/controllerbot");
 const initializeBots = require("./mainbot/handlers/initializeBots");
-const owners = require("./config.json").owners;
+
+// Load config.json and override tokens with DISCORD_TOKEN from .env when present
+const _configPath = path.resolve(__dirname, 'config.json');
+let config = require(_configPath);
+if (process.env.DISCORD_TOKEN && process.env.DISCORD_TOKEN.trim()) {
+  config.tokens = [process.env.DISCORD_TOKEN.trim()];
+  const mod = require.cache[require.resolve(_configPath)];
+  if (mod) mod.exports = config;
+}
+const owners = config.owners;
 const hasAccess = require("./db/access");
 const pm2 = require("pm2"); 
 const generate = require("./autosecure/utils/generate");

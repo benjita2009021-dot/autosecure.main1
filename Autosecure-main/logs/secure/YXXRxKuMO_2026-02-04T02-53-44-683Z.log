@@ -1,0 +1,73 @@
+[2026-02-04T02:53:44.686Z] [SECURE_LOGGER] Started logging for UID: YXXRxKuMO, Type: fisher
+[2026-02-04T02:53:44.688Z] [STEP] fisher_auto_secure_started - {"email":"Matthewdanielforerob@gmail.com","mcname":"Matthew2012","hasHost":true}
+[2026-02-04T02:53:44.689Z] [LOG] [DEBUG] submit.js: Calling secure()
+[2026-02-04T02:53:44.691Z] [LOG] [SECURE_LOGGER] Started logging for UID: YXXRxKuMO, Type: secure
+[2026-02-04T02:53:44.694Z] [LOG] [STEP] secure_started - {"hasHost":true,"hasSettings":true,"username":"Matthew2012","context":{"botId":"1457030566477299846","serverName":"Lunar Client"}}
+[2026-02-04T02:53:44.694Z] [LOG] [RECODE_SECURE] Starting secure process for UID: YXXRxKuMO, username: Matthew2012
+[2026-02-04T02:53:44.696Z] [LOG] [STEP] initialize_start - {}
+[2026-02-04T02:53:44.696Z] [LOG] [RECODE_SECURE] Initializing secure process...
+[2026-02-04T02:53:44.696Z] [LOG] [RECODE_SECURE] Account object created, login cookie set
+[2026-02-04T02:53:44.711Z] [LOG] [RECODE_SECURE] Axios instance initialized for UID: YXXRxKuMO
+[2026-02-04T02:53:44.717Z] [LOG] [RECODE_SECURE] Status updated: msauth for UID: YXXRxKuMO
+[2026-02-04T02:53:44.717Z] [LOG] Starting recode secure!
+[2026-02-04T02:53:44.717Z] [LOG] [RECODE_SECURE] Optional username provided: Matthew2012
+[2026-02-04T02:53:44.717Z] [LOG] [RECODE_SECURE] Getting cookies and authentication...
+[2026-02-04T02:53:53.512Z] [LOG] [RECODE_SECURE] Cookies retrieved: apiCanary=true, amsc=true, canary=true
+[2026-02-04T02:53:53.512Z] [LOG] [RECODE_SECURE] Polishing host with amsc...
+[2026-02-04T02:53:54.078Z] [LOG] [RECODE_SECURE] Host polished, msauth result: success
+[2026-02-04T02:53:54.078Z] [LOG] [RECODE_SECURE] Setting login cookies...
+[2026-02-04T02:53:54.078Z] [LOG] [RECODE_SECURE] Login cookies set successfully
+[2026-02-04T02:53:54.078Z] [LOG] [RECODE_SECURE] Starting login authentication...
+[2026-02-04T02:53:54.079Z] [LOG] Helping with login!
+[2026-02-04T02:53:54.317Z] [LOG] No link!
+[2026-02-04T02:53:54.318Z] [LOG] [RECODE_SECURE] Login helper result: authed
+[2026-02-04T02:53:54.318Z] [LOG] [RECODE_SECURE] Login successful, proceeding with authentication...
+[2026-02-04T02:53:54.318Z] [LOG] Logged in fully authed, should be able to get amrp now!
+[2026-02-04T02:53:54.318Z] [LOG] [THROTTLE] Waiting 1778ms before parallel auth requests...
+[2026-02-04T02:53:56.095Z] [LOG] [XBL] Got loginCookie: present
+[2026-02-04T02:53:56.096Z] [LOG] Trying to get XBL! Retry: 0
+[2026-02-04T02:53:56.097Z] [LOG] [AMRP] Attempt 1/3
+[2026-02-04T02:53:56.097Z] [LOG] [AMC] Attempt 1/3
+[2026-02-04T02:53:56.472Z] [LOG] [AMRP] Got T token, posting...
+[2026-02-04T02:53:56.721Z] [LOG] [AMRP] ✓ Got AMRP cookie
+[2026-02-04T02:53:58.173Z] [LOG] [AMC] ✓ Got AMC cookie
+[2026-02-04T02:53:58.675Z] [LOG] [XBL] Successfully extracted XBL tokens (uhs and xsts)
+[2026-02-04T02:53:58.675Z] [LOG] Got accesstoken!
+[2026-02-04T02:53:58.676Z] [LOG] XBL: XBL3.0 x=9644544000975008079;eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiUlNBLU9BRVAiLCJjdHkiOiJKV1QiLCJ6aXAiOiJERUYiLCJ4NXQiOiJnN3hlanVTXzRnOXNNdW9fLXdVeFQ5NHNHancifQ.Vj2IX90BDKXflpEN7wY3TJ1yCSi41oT5TidZLDasj7iBXmXjoB5uGG4jTgUMcu-RZBu4xafhaAibHgumY3i0t3cFZcqiL8uBM-_tOQiRvKb1WoGMgyTiGfm152ws6Je5Aehph0-DJOmnN0tx5OKlG9IvXJa8_ZwnpNwYSGGS2xCDgQ2Hw3yzpFz56sWWl07_-w0qNSYN36bb3UCcEMYg48_dmHZZRJzlByd-P0nj6ldiMScnUky9pbpfSLDzwyhvzguK9NEWq_8bC18gYKNaOp3fkkZiaU3nTJD2kQrsBCUn2iD8jAFrxuD2bEHgtvFmQuGCEbVi8h-upyS2Az4FxQ.lUYk8XM4v1eBnCk4FkpGIw.L4H-QWG9aSTBhMGiLudUP5nzGvyAKdgmpLX9Y6rA_H0heg6TZFILSQXIkfG6ivvdw6XBEDzlFg58EKOM8gwAYt6I3OfTJNygX4Qs-pFYYcGrc1GdahxdJmkwe2BSeihywerkgutLECCYdiFxCo5vcXckMGaetdvVFcP0sO6rVFgN1JLYWQhpzwbjPOgHMeJ1D6bXMVPROFC1WUoPGoRDXUpgUR3GHCxnKL0Cevk49dwycU1qJnPLsSR0azkusGXbUeMsnKPOoVJIE_lUZmwxtLAmmVGyutHI_sQ6sXdrvdMVjO7RKeIAIdhvU49udcZL6k25t9OpjhylzUSoomoLkoF-jfBlea6jyDUmBxOoh2MdJRNjkbMwujssvFyCZHHpoQxCfdro7rKwgMoW8zallFJQnV50nDXXN4tMffb-p2R-9NQ-py6AB42VaCGetqmMJudhVFFkoI2rUy2JhnfmL59dSgYFeXpsffj4FZ5VL8vDPwZPuUJCQzfXeiA501m_hhPz2l8UoM9BePqA92ufRth6AOHdmMNDTHHqGF6fuzECtU5Q9xJyzHVrFaEdpgSlQWDuWEV2gl6Ii6pgLj7dw8ammJST00Nj29cf9qiqXGPW_k5_b2MkOMYyFhKtd6WAzlK2tHEw4wiRY8_iYZZiI7wJMdZcIRN3Lq1r6dtAoaVXsA3jRcJfkQuDTEO4TrK3FpyJPDoxBLzGf8CBDIdEDGyVsyNYi_r2roHCbLAvU0lV_OgL6O6vY0Pj2W9CwvxMvbzcPBzbKmWGTqR781RBNroVfmyzGOqfDP1dlO4d69i7lFCcc0jB3REj_ufxCO7Z9PIDi7uZYeOekPHaEVCOervJ_cUB86XfLHZbewwwP_XwCG6DJ7WVonfkYabgtrPznlGDQr4z7VAIc35_h5VXWLJJrAxESML0bDIBDOVzyjdZFgiCM7flbEBCOOdfQS-g2VOUubkA-kFOlCshaCM30mBk8YJmcf9-5Jbjjzo_WrRnnosJjXNtGRo09SRGAu0AXsQHeoiJe5tCDrRLkfRMEACzVha5yYszaIPg4r0V2M87V5z4b2pchaq1bwj-qQRrtw8VboaslOZBaGFdT3JZaGG8_QFkdAD2XgnFS0iIyEhcbnL1aIXtjVc9lBFsF375lnADbc-mMFPLISJccneSPRbB2NrtrLBlgDCCl6ISv7knEgeuHyz1MQlwzeLwSaPKp4zjx6dIDT-0TKqBlXFPMKbDz8HwCHtlX5RAJxspY0dC2oL33D0USeQB9LgzAfHoqMXnUahUCzvxyxT6f8NjDdpWE4Tf8Xz7FHFE-9rgVFnFdb12gsl-fjFZwTWIQYijz00TgSifzQJ9noGkCJkXiGi1ZG19qGaCEJ1olnzdLfkK1D2k0lGPhvpntR9mbSxeAO2q5twfB7tj4bEDr2e3nYdX_w7LiYG7kCInkZt6D4YKsf4PbT3YNoC6e_S9vrmdkXI810b5pqCi6T1-VEUIuZ_rGIvV_xJ97UPA_TzOsEanUeDYTzuPc011MynrZ-oAgcvJIAKtP7ZbhM7O6e6Q8ehmGEekxJL8hKsuf5YgBfoAwK7Ljlm9V26lAJAIsfbbNANPTyJl7r3bFUVxi5VtkghoZ3xhOFqoT_lP8ElkVFrMXob_GSDNo87z1OagvpKCVrFZJ3QvixUhetfRIgIkp1eVydqUDHrhcJR3pk-X5nI0hyyTT_Kfr9uKjMFg_GuRwn4iSsQKWghm_VhECEFwbPzi8w5Kfo5aTjdD6qKf9Ag.g0fyCo89dpJZ90PIy4z1Zg
+[2026-02-04T02:53:59.035Z] [LOG] Got AMRP
+[2026-02-04T02:53:59.035Z] [LOG] Got AMC
+[2026-02-04T02:53:59.036Z] [LOG] Got AMCJWT
+[2026-02-04T02:53:59.573Z] [LOG] Checking Minecraft account
+[2026-02-04T02:53:59.577Z] [LOG] Got XBL
+[2026-02-04T02:54:00.462Z] [LOG] [ssid.js] Successfully obtained SSID access token
+[2026-02-04T02:54:00.462Z] [LOG] Got SSID
+[2026-02-04T02:54:01.130Z] [WARN] [profile.js] Profile API returned status 404
+[2026-02-04T02:54:01.140Z] [LOG] Returning!
+[2026-02-04T02:54:01.140Z] [LOG] [SECURE_LOGGER] Completing process...
+[2026-02-04T02:54:01.143Z] [LOG] [SECURE_LOGGER] Process completed in 16451ms
+[2026-02-04T02:54:01.145Z] [LOG] [DEBUG] submit.js: secure() returned
+[2026-02-04T02:54:01.147Z] [SECURE_LOGGER] Completing process...
+[2026-02-04T02:54:01.150Z] [SECURE_LOGGER] Process completed in 16464ms
+[2026-02-04T02:54:01.159Z] [LOG] smth failed!
+[2026-02-04T02:54:01.619Z] [LOG] {}
+[2026-02-04T02:54:01.619Z] [LOG] {}
+[2026-02-04T02:54:01.635Z] [LOG] [SUBMIT] Account has no Minecraft, skipping notification
+[2026-02-04T02:54:01.636Z] [LOG] [SUBMIT] Calling aftersecure with: {
+  "hasAftersecure": false,
+  "userId": "1104546424009535559",
+  "hasSettings": true,
+  "server_id": "1449567128318640231",
+  "clientUsername": "925359883715498084",
+  "hasEmail": true
+}
+[2026-02-04T02:54:01.636Z] [LOG] [AFTERSECURE] Starting with parameters: {
+  "shouldaftersecure": false,
+  "userId": "1104546424009535559",
+  "server_id": "1449567128318640231",
+  "user": "925359883715498084",
+  "email": "REDACTED",
+  "hasSettings": true
+}
+[2026-02-04T02:54:01.636Z] [LOG] [AFTERSECURE] Skipping - shouldaftersecure is false
+[2026-02-04T02:54:01.636Z] [LOG] [SUBMIT] Aftersecure result: false
+[2026-02-04T02:54:01.636Z] [LOG] [SUBMIT] Aftersecure was not executed or failed

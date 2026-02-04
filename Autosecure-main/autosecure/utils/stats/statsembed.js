@@ -1,6 +1,6 @@
 const getembedautosec = require("../responses/getembedsautosec");
 const { EmbedBuilder } = require("discord.js");
-const sendStatsToChannel = require("../../../../mainbot/utils/sendStatsToChannel");
+const sendStatsToChannel = require("../../../mainbot/utils/sendStatsToChannel");
 
 async function statsembed(client, acc, interaction) {
     // Generate and send the full PNG image to stats channel

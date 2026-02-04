@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 const { queryParams } = require('../db/database.js');
-const { tokens, guildid, welcomechannel } = require("../config.json");
+const config = require("../config.json");
 const emailHandler = require("./handlers/emailHandler.js");
 const eventHandler = require("./handlers/eventHandler.js");
 const { startLicenseChecker } = require('./utils/licensechecker.js');
@@ -14,6 +14,10 @@ const { initializeInvoices } = require('./utils/purchase/combined.js')
 const { initializeappealclient } = require("../autosecure/utils/bancheckappeal/appealmsg.js");
 const checkroles = require("./utils/checkroles.js");
 const { setMainBotClient } = require('./handlers/botHandler.js');
+
+// Get Discord token from .env or config.json (with .env taking precedence)
+const tokens = [process.env.DISCORD_TOKEN?.trim() || (config.tokens?.[0]?.trim()) || ''];
+const { guildid, welcomechannel } = config;
 /*
 Starts Autosecure API
 */

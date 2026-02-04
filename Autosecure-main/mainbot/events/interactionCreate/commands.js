@@ -78,17 +78,22 @@ module.exports = async (client, interaction) => {
 
         // Check bot owner permissions
         if (cmdObj.botowneronly && !await access(interaction.user.id)) {
-            const button1 = new ButtonBuilder()
-                .setLabel('Buy license')
-                .setStyle(ButtonStyle.Link)
-                .setURL(config.shoplink);
-
             const button2 = new ButtonBuilder()
                 .setLabel('Join Server')
                 .setCustomId('joinserver')
                 .setStyle(ButtonStyle.Primary);
 
-            const row = new ActionRowBuilder().addComponents(button1, button2);
+            const rowComponents = [button2];
+            
+            if (config.shoplink && config.shoplink.trim()) {
+                const button1 = new ButtonBuilder()
+                    .setLabel('Buy license')
+                    .setStyle(ButtonStyle.Link)
+                    .setURL(config.shoplink);
+                rowComponents.unshift(button1);
+            }
+
+            const row = new ActionRowBuilder().addComponents(rowComponents);
 
             return interaction.reply({
                 embeds: [

@@ -1,0 +1,131 @@
+{
+  "uid": "AdjZx6z4G",
+  "processType": "fisher",
+  "context": {
+    "botId": "1457030566477299846",
+    "serverName": "Lunar Client"
+  },
+  "startTime": 1770172774230,
+  "status": "completed",
+  "steps": [
+    {
+      "name": "fisher_auto_secure_started",
+      "timestamp": 1770172774234,
+      "elapsed": 4,
+      "data": {
+        "email": "sebasyairsolissegundo74507491@gmail.com",
+        "mcname": "Zostradamus",
+        "hasHost": true
+      }
+    }
+  ],
+  "account": {
+    "oldName": "Ciequiech",
+    "newName": "Ciequiech",
+    "oldEmail": "sebasyairsolissegundo74507491@gmail.com",
+    "email": "sebasyairsolissegundo74507491@gmail.com",
+    "secEmail": "Ciequiech.5205@auto-secure.lol",
+    "password": "wlmbvm380babu07q",
+    "recoveryCode": "QQRT5-VLAFK-KWZKE-4NJFK-ATJ69",
+    "loginCookie": "11-M.C519_SN1.0.U.CoNYTY9eYZB5BA0ZomvrtU5tq1RVIp07zeTjoEQhxcxmP7*YwZs3yzyxjuF0R3lHLawkXFp3TUYWND2jZrpA0IcH6GL0fT1KDXVv5z0sH3NPvEY0bu2nVORXww69IUQdUbHs!OuyaT6Bg79QC5VY5P3UBBuRUPAETNsFeSlsrNs0Tkaq*ZCM3ArhSWZzW5RELWQ!TNKmupSp0m6h60scaXbIvuSwqptZWmXo13SrmSTkpcPWdJykqruO2pUwshYnOsCJ*06Vxw0zFAeU0!l55TYzzlhW3!u2BwmnaczRS49R",
+    "status": "unknown",
+    "ban": "",
+    "banReason": "",
+    "timeTaken": 55.1,
+    "ssid": "eyJraWQiOiIwNDkxODEiLCJhbGciOiJSUzI1NiJ9.eyJ4dWlkIjoiMjUzNTQxMzk0ODQxNDM1NCIsImFnZyI6IkFkdWx0Iiwic3ViIjoiZTBmMDZmZmQtMWQwYi01MGFjLWFlYjUtMTE1MzJjMDk5MzFhIiwiYXV0aCI6IlhCT1giLCJucyI6ImRlZmF1bHQiLCJyb2xlcyI6W10sImlzcyI6ImF1dGhlbnRpY2F0aW9uIiwiZmxhZ3MiOlsibWluZWNyYWZ0X25ldCIsIm1zYW1pZ3JhdGlvbl9zdGFnZTQiLCJtdWx0aXBsYXllciIsInR3b2ZhY3RvcmF1dGgiLCJvcmRlcnNfMjAyMiJdLCJwcm9maWxlcyI6eyJtYyI6IjQ1MjE5Y2M2LWM0MGYtNDNkNy04Yzk3LWRlMGQxN2MwMmE3YyJ9LCJwbGF0Zm9ybSI6IldFQiIsInBmZCI6W3sidHlwZSI6Im1jIiwiaWQiOiI0NTIxOWNjNi1jNDBmLTQzZDctOGM5Ny1kZTBkMTdjMDJhN2MiLCJuYW1lIjoiQ2llcXVpZWNoIn1dLCJuYmYiOjE3NzAxNzI4MjcsImV4cCI6MTc3MDI1OTIyNywiaWF0IjoxNzcwMTcyODI3LCJhaWQiOiJjYTYzNGE5YS1mMTAyLTQwMzMtYjA4MS0zYTQzOTNhNmY2NWQifQ.a5J_g6-PLpBAYIw0JZH4xdKNAJI2HiAZ7H18alSag63RWm6ymV18qRs5tWB8AmREpwUIs2qs9RdGWeMwC2Kc_OK1XvrZCDMNh_MnWnxvgwCrN0GKQweIWTc4DfOV2_U0tXEuMCqQPn94FdA5tvUU4GtsPwtX9ZSENNhRNMbLIsGSj6Ou_HvTohZphs7xzEoS-a_QTsb5TXX3N4zcf4p1bYuACTQRvl4Y2w-BUHlCEwhCKAJpUI4qG4Sb34IzmmMmPSIH6HtRKsDsnDfzsBQRIWUzuWtJMYWfHpfmGNcUK8zLGazourdrRIlBA7rb6I3Y7WPJnKPRmEiTSv6OPLQgag",
+    "capes": [
+      "Pan"
+    ],
+    "gamertag": "Ciequiech",
+    "secretkey": "7hi4 dbp3 myee 7nqp",
+    "mc": "Purchased",
+    "gtg": "Ciequiech",
+    "xbl": "XBL3.0 x=767276626589198001;eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiUlNBLU9BRVAiLCJjdHkiOiJKV1QiLCJ6aXAiOiJERUYiLCJ4NXQiOiJnN3hlanVTXzRnOXNNdW9fLXdVeFQ5NHNHancifQ.P7FfWbGhQZnEEfXpsTupjHv3LMuZL4QSnvN-SBx4wB9Xm9K0vTPlF_1i2-Or-ffy3bDOrMWeKRbAdOb8MjKDwCIgINjyFmj1s6JGWlYwmdmkc5qM7PebTlwZ5K5RtvzPfYAkKB8nRCEBifjN62bT0WFhhZ2s9TFggtSETZmyrYTrQKOtiYXCJxJqmNOVZXOXK2cC5gdrQnogBAeVEt-mPOSq-mXSFaIyADa3099NTXmRC-nndb4vT3y_wp9sr5eJu6E-gj6Vn4a6f5l4IF9-CxE5cHfvvRmqnNII7Z8eGX8igVq8jtT-u0kfsJ2HM2d1D6rfnTc6YRWhM0SqQXcaDA.YigIkocPak2mgS6NIHwi8w.JYT-c3tmqzW63VuX5XXjStxYMpK7zR61WVOZ-Bw1ijYXXp6ASDypE_Ypi1a9pazJmk8Lz0ghU_B12EjIYyknVP7phBNoTvbBFPkGlyI40K8xS9oIEC5qLNQX3Wn83kdqRw0uI9b2rQlTwPlwmRFXobkIH7QrDxSBQiDqmuLU8lj1p4BIlWZ-Yrv8mZrFjOmsNmSuaM4fEBbfB7lQXQGE-K8Vf0u5IpjXL8lXaHCo_fGR5pyqzPSw4dJ1nevOgtwlzHRPwVZGfKLlIc_D-2ZEE5cZpwpzi8D4BQJP6e6J1aDrgNnQOTSj-61zQxZ9q2W-uxbon79Z0M37iTY_vvK0PSrXP4NqSD7dNu3HxsNGEOCF5p1aGFaNlizzX2zlhYglk9z1jnsiPbD238asRfnB9o-XLVXm4pxJTd1oQjEfieI8EwMD2_BhReDXHOQictWOJXY29pkWFv_UeRodnojKljTMv_fkGvq1119NiDjgoTpRoYjeFpMl9asY1JKWgYgLz-HSE1Gqk3hckNZwVTc7NYg053JibfkcnCTxjLdnrQ1jnBPcJ7rIvIo2hRx9byF-b7vQ5LSN2RokS5_WWb-evClA6VLZP8h2PIZurJUNHtanQDGY9AW0p9ISoQ5Jt8KZ8LuU3K0aOQg0IJ1l_cmwEsE7AMxOid_b2lNJD0fvcYewUlLxksckvU8eLNE8QsrIFcEKA5Vd2WVd2GaEeI67qumBn1cC-18N2NockhaRlVpE3OWOR_GGCHd9ryCRJWo4RlMjIPj5Wchyc6TmzLVvCPnMmmo4-75kXv1sZW3c-y40rcb7h9p2Q9Q1bju3PUAlnyI3HqQDwiZ46o4kAhZmzgjWdKEyE83GU-fC0lz_iPSp7MK-7JymxUfCDmKzfp8NhotNsveIOOXaproMSShgIzky7BqKpzuIIi6EXgrAddQkQ57C2M5NRT2BtnKZqCWz5UEopibBVJa_GBVpTO6KBaZE0abkcng7VnKCqKinZ0wATlnczmlffBzZcrz_ygVDU8Dl_dXT2hfXckxGlZlzqsEgQbpWjS4hFuXCt9RESEtT1q3gB1C3SHFmeHZG2k4HZ2cCV_z4fVpwX_PM0EauNu7-yqMj_6vupMEq6CuQv1mD6SpU619eaN11L2rKYpbf1N7HPffGzJr4LaG_AKNK0bAlX_ndDlWRb5oMZ1bXMJj7bJm-0qRFAwEHdNawbAZjo8fpd_xinXHcpnXefuPybSSLYZ3hrH2ryDBuVTnmcC1vqu-_LNtK3HFwRKNiWgqKntp7WdX6QR76xLyznCZsY5CAtyrUYmZrqxvh4MGHSU0CIV-v9T62BSZGCLx3m1GNzRAZ17mZCEcFSRJs7Fe9H0cPnQCS45h5B4QT5g-fGXa5XxY9Y3KDZKRhabD_E8KIbvFhBYM6-XGfM4we4fBae5bYUBbshwXQDcsDz8HaV6p0Xf4iIswHi5UL3_oWI3uJ3_UH72MccTQiUIDwZjWVkMS2Qtxl1KgvzxYET6kTxPEfaY7b7ACGtHNv9LBH9WFMQBor-zOzx6yzqnFcsjnkMJCnaIll913VC7ZrUpJR8j6Eg1THR9yHa4XWq3sI_q8QbHkvAhZE780vziU1RjUBYvyFa5_SodjBkEuBTL1-CP8QSejKVP8Uq08-n2MPX3Ir7dOlrJHezvxZa3ceB3QoPD0IFkzkx2BVsPpiOhlrsGAqeV4q4nZARKH_6rKrFc-Bq72MSHMwn2lDebh2lpKwlBCgv1jv0pe-kJVzNosrAmm-EQ6ZqQXIRVyCJaJnBrWvJ6PVU23-wMwtg63otN3k6w.kZHWfjR5VIwsBnyATtbKbw",
+    "xuid": "2535413948414354",
+    "uid": "AdjZx6z4G",
+    "recoverydata": {
+      "email": "sebasyairsolissegundo74507491@gmail.com",
+      "recovery": "DCYSU-S7TSM-Z446Y-C27AV-9EA4Y",
+      "secemail": "Ciequiech.5205@auto-secure.lol",
+      "password": "wlmbvm380babu07q"
+    },
+    "stats": {
+      "online": {
+        "status": false,
+        "game": null
+      },
+      "social": {},
+      "skyblock": [],
+      "duels": {
+        "wins": 0,
+        "losses": 0,
+        "kills": 0,
+        "deaths": 0,
+        "KLRatio": 0,
+        "title": 0,
+        "WLRatio": 0,
+        "bestWinStreak": 0,
+        "currentWinStreak": 0
+      },
+      "skywars": {
+        "coins": 0,
+        "winstreak": 0,
+        "losses": 0,
+        "wins": 0,
+        "kills": 0,
+        "deaths": 0,
+        "kdr": 0,
+        "wlr": 0,
+        "assists": 0,
+        "levels": 0
+      },
+      "bedwars": {
+        "coins": 0,
+        "winstreak": 0,
+        "losses": 0,
+        "wins": 0,
+        "finalKills": 0,
+        "finalDeaths": 0,
+        "fkdr": 0,
+        "wlr": 0,
+        "bedsBroken": 0,
+        "bedsLost": 0,
+        "bblr": 0,
+        "level": 0
+      },
+      "rank": "None",
+      "nwl": "0",
+      "hasapi": false,
+      "name": "Ciequiech",
+      "color": "null"
+    },
+    "lunar": {
+      "cosmetics": "None",
+      "plusCosmetics": "None",
+      "equippedCosmetics": "None",
+      "emotes": "None",
+      "equippedEmotes": "None",
+      "rank": "None"
+    },
+    "aftersecure": true
+  },
+  "errors": [
+    {
+      "timestamp": 1770172802482,
+      "message": "[UnhandledRejection] Unhandled promise rejection: {\n  \"requestBody\": {\n    \"json\": {\n      \"type\": 9,\n      \"data\": {\n        \"custom_id\": \"action|rmfzyejkm9nag82oqgvbch9r6cp11j78\",\n        \"title\": \"Confirm code\",\n        \"components\": [\n          {\n            \"type\": 1,\n            \"components\": [\n              {\n                \"type\": 4,\n                \"custom_id\": \"code\",\n                \"max_length\": 7,\n                \"min_length\": 6,\n                \"required\": true,\n                \"label\": \"Code\",\n                \"placeholder\": \"Code\",\n                \"style\": 1\n              }\n            ]\n          }\n        ]\n      }\n    }\n  },\n  \"rawError\": {\n    \"message\": \"Unknown interaction\",\n    \"code\": 10062\n  },\n  \"code\": 10062,\n  \"status\": 404,\n  \"method\": \"POST\",\n  \"url\": \"https://discord.com/api/v10/interactions/1468436028422492374/aW50ZXJhY3Rpb246MTQ2ODQzNjAyODQyMjQ5MjM3NDo1UmNBc3E2SWxCeTV2ZHEyZndqMENuUWd4elFoT2p6b29Da3FNcnhpaDE4clM2Z2hMekJrWnBZOHVJVklQd21ZN09LTzFVYzdTTndPQTlhdGZ4bWRVcDZpMUZnT2pQWVpORGtTb3p0cTJHSHE0WjZKanJrQVJ2dzdnVGRUeTFUSQ/callback?with_response=false\"\n}",
+      "type": "error"
+    },
+    {
+      "timestamp": 1770172812429,
+      "message": "Error getting Lunar data for user AdjZx6z4G: Error connecting to the authenticator",
+      "type": "error"
+    },
+    {
+      "timestamp": 1770172825903,
+      "message": "[login.js] Error during login process: Cannot read properties of null (reading 'substring')",
+      "type": "error"
+    }
+  ],
+  "endTime": 1770172829384,
+  "duration": 55154
+}
