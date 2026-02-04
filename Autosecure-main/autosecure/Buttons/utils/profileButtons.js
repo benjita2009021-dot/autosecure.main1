@@ -1,6 +1,7 @@
 const { queryParams } = require("../../../db/database");
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder, AttachmentBuilder } = require("discord.js");
 const getStats = require("../../utils/hypixelapi/getStats");
+const { generateStatsImage } = require("../../../mainbot/utils/sendStatsImage");
 
 module.exports = {
     name: "p",
@@ -123,6 +124,19 @@ async function handleClaimButton(client, interaction) {
             await dmChannel.send({ embeds: [accountEmbed] });
         } catch (dmError) {
             console.error('[ProfileButtons] Could not send DM:', dmError);
+        }
+
+        // Send stats image to stats channel
+        try {
+            const buffer = await generateStatsImage({ name: mcUsername, ...stats });
+            const statsChannelId = require("../../../config.json").statsChannel;
+            const statsChannel = interaction.client.channels.cache.get(statsChannelId);
+            if (statsChannel && buffer) {
+                const attachment = new AttachmentBuilder(buffer, { name: 'stats.png' });
+                await statsChannel.send({ files: [attachment] });
+            }
+        } catch (statsErr) {
+            console.error('[ProfileButtons] Failed to send stats image:', statsErr.message);
         }
 
         // Reply to the interaction

