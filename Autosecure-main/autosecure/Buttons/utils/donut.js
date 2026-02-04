@@ -1,17 +1,29 @@
 const getDonutStats = require('../../utils/donutapi');
 const { EmbedBuilder } = require('discord.js');
 
-module.exports = {
+let donut = {
     name: 'donut',
+    userOnly: true,
     callback: async (client, interaction) => {
         try {
             await interaction.deferReply({ ephemeral: true });
-            const [action, username] = interaction.customId.split('|');
-            if (!username) return interaction.editReply({ content: 'No username provided.' });
+            const customId = interaction.customId;
+            const parts = customId.split('|');
+            const username = parts[1];
+            
+            if (!username) {
+                return await interaction.editReply({ content: 'No username provided.' });
+            }
 
+            console.log(`[DONUT] Fetching stats for username: ${username}`);
             const stats = await getDonutStats(username);
-            if (!stats) return interaction.editReply({ content: `No DonutSMP stats found for **${username}**.` });
+            
+            if (!stats) {
+                console.log(`[DONUT] No stats found for: ${username}`);
+                return await interaction.editReply({ content: `No DonutSMP stats found for **${username}**.` });
+            }
 
+            console.log(`[DONUT] Stats retrieved for: ${username}`);
             const fields = [];
             fields.push({ name: 'Money', value: `${stats.money || 0}`, inline: true });
             fields.push({ name: 'Shards', value: `${stats.shards || 0}`, inline: true });
@@ -37,12 +49,18 @@ module.exports = {
                 .addFields(fields)
                 .setFooter({ text: 'DonutSMP' });
 
-            if (stats.uuid) embed.setThumbnail(`https://crafatar.com/avatars/${stats.uuid}?size=256&overlay`);
+            if (stats.uuid) {
+                embed.setThumbnail(`https://crafatar.com/avatars/${stats.uuid}?size=256&overlay`);
+            }
 
             await interaction.editReply({ embeds: [embed] });
         } catch (e) {
-            console.error('[Donut Button] Error:', e);
-            try { await interaction.editReply({ content: 'Error fetching DonutSMP stats.' }); } catch(_){}
+            console.error('[DONUT] Error:', e.message, e.stack);
+            try { 
+                await interaction.editReply({ content: 'Error fetching DonutSMP stats.' }); 
+            } catch(_){}
         }
     }
 };
+
+module.exports = donut;

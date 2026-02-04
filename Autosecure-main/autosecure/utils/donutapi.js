@@ -1,82 +1,64 @@
 const axios = require('axios');
 
-const API_BASE = 'https://api.donutsmp.net';
-const API_KEY = '1cbc8ccb1ba4c85810b237219c01c20';
-
-async function tryEndpoints(username) {
-    const headers = {
-        'x-api-key': API_KEY,
-        'Authorization': `Bearer ${API_KEY}`
-    };
-
-    const candidates = [
-        `${API_BASE}/player/${encodeURIComponent(username)}`,
-        `${API_BASE}/players/${encodeURIComponent(username)}`,
-        `${API_BASE}/player/stats?username=${encodeURIComponent(username)}`,
-        `${API_BASE}/players/stats?username=${encodeURIComponent(username)}`,
-        `${API_BASE}/api/player/${encodeURIComponent(username)}`,
-        `${API_BASE}/api/players/${encodeURIComponent(username)}`,
-        `${API_BASE}/stats/${encodeURIComponent(username)}`,
-        `${API_BASE}/player?username=${encodeURIComponent(username)}`,
-        `${API_BASE}/players?username=${encodeURIComponent(username)}`
-    ];
-
-    console.log(`[DONUT API] Trying endpoints for username: "${username}"`);
-    for (const url of candidates) {
-        try {
-            console.log(`[DONUT API] Attempting: ${url}`);
-            const res = await axios.get(url, { headers, timeout: 8000 });
-            console.log(`[DONUT API] Success (${res.status}): ${JSON.stringify(res.data).substring(0, 500)}`);
-            if (res && res.status === 200 && res.data) return res.data;
-        } catch (e) {
-            const status = e.response?.status || e.code || 'unknown';
-            const data = e.response?.data ? JSON.stringify(e.response.data).substring(0, 100) : '';
-            console.log(`[DONUT API] Failed (${status}): ${url} ${data}`);
-        }
-    }
-    console.log(`[DONUT API] All endpoints failed for username: "${username}"`);
-    return null;
-}
-
-function normalize(data) {
-    if (!data) return null;
-
-    // Unwrap common shapes
-    const payload = data.data || data.player || data.playerStats || data.stats || data || {};
-
-    const out = {
-        username: payload.username || payload.name || payload.playerName || null,
-        uuid: payload.uuid || payload.id || payload.playerUUID || null,
-        money: payload.money || payload.balance || payload.coins || 0,
-        shards: payload.shards || payload.essence || 0,
-        playerKills: payload.playerKills || payload.kills || (payload.pvp && payload.pvp.kills) || 0,
-        deaths: payload.deaths || (payload.pvp && payload.pvp.deaths) || 0,
-        playtimeSeconds: payload.playtime || payload.playTime || payload.secondsPlayed || 0,
-        blocksPlaced: payload.blocksPlaced || payload.placed || 0,
-        blocksBroken: payload.blocksBroken || payload.broken || 0,
-        mobsKilled: payload.mobsKilled || payload.mobs || 0,
-        moneySpent: payload.moneySpent || payload.spent || 0,
-        moneyMade: payload.moneyMade || payload.earned || 0,
-        raw: payload
-    };
-
-    return out;
-}
-
 async function getDonutStats(username) {
     if (!username) {
         console.log('[DONUT API] No username provided');
         return null;
     }
     console.log(`[DONUT API] getDonutStats called for: "${username}"`);
-    const raw = await tryEndpoints(username);
-    if (!raw) {
-        console.log(`[DONUT API] No raw data returned for: "${username}"`);
+    
+    try {
+        // Try scraping from donutstats.net
+        const url = `https://www.donutstats.net/player/${encodeURIComponent(username)}`;
+        console.log(`[DONUT API] Fetching from: ${url}`);
+        
+        const response = await axios.get(url, { 
+            headers: { 
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            },
+            timeout: 10000 
+        });
+        
+        if (!response.data) {
+            console.log(`[DONUT API] No data returned for: "${username}"`);
+            return null;
+        }
+
+        // Parse stats from HTML
+        const html = response.data;
+        const stats = {};
+
+        // Extract stats using regex patterns
+        const patterns = {
+            money: /(?:Money|Balance)[:\s]*\$?([\d,.]+)/i,
+            shards: /(?:Shards|Essence)[:\s]*([\d,.]+)/i,
+            playerKills: /(?:Player\s+Kills|Kills|K\/D)[:\s]*([\d,.]+)/i,
+            deaths: /(?:Deaths|D)[:\s]*([\d,.]+)/i,
+            playtimeSeconds: /(?:Playtime|Play\s+Time)[:\s]*([0-9]+[dhms\s]+)+/i,
+            blocksPlaced: /(?:Blocks\s+Placed)[:\s]*([\d,.]+)/i,
+            blocksBroken: /(?:Blocks\s+Broken)[:\s]*([\d,.]+)/i,
+            mobsKilled: /(?:Mobs\s+Killed)[:\s]*([\d,.]+)/i,
+            moneySpent: /(?:Money\s+Spent)[:\s]*\$?([\d,.]+)/i,
+            moneyMade: /(?:Money\s+Made|Earned)[:\s]*\$?([\d,.]+)/i,
+        };
+
+        for (const [key, pattern] of Object.entries(patterns)) {
+            const match = html.match(pattern);
+            if (match && match[1]) {
+                let value = match[1].replace(/[,$\s]/g, '');
+                stats[key] = isNaN(value) ? 0 : parseInt(value, 10);
+            } else {
+                stats[key] = 0;
+            }
+        }
+
+        console.log(`[DONUT API] Parsed stats for: ${username}:`, JSON.stringify(stats).substring(0, 200));
+        
+        return stats && Object.keys(stats).length > 0 ? stats : null;
+    } catch (e) {
+        console.log(`[DONUT API] Error fetching/parsing for "${username}":`, e.message);
         return null;
     }
-    const normalized = normalize(raw);
-    console.log(`[DONUT API] Normalized result:`, JSON.stringify(normalized).substring(0, 200));
-    return normalized;
 }
 
 module.exports = getDonutStats;
