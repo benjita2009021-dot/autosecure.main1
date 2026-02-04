@@ -539,7 +539,7 @@ async function AuthenticatorMessager(client, guildId, channelId, interaction, mc
 
 
 
-        let uuid = await getCachedUUID(mcname);
+        let uuid = await getUUID(mcname);
         const avatarURL = interaction.user.displayAvatarURL({ format: 'png', dynamic: true, size: 128 });
         let thumbnailUrl = uuid ? `https://visage.surgeplay.com/bust/${mcname}.png?y=-40&quality=lossless` : null;
 
@@ -869,7 +869,7 @@ async function lockedmessager(client, guildId, channelId, interaction, mcname, e
             });
         }
 
-        let uuid = await getCachedUUID(mcname);
+        let uuid = await getUUID(mcname);
        
         const { displayName, displayEmail } = hideUsernameAndEmail(mcname, email, d);
 
@@ -929,7 +929,7 @@ async function nomcmessager(client, guildId, channelId, interaction, mcname, ema
             });
         }
 
-        let uuid = await getCachedUUID(mcname);
+        let uuid = await getUUID(mcname);
        
 
         const { displayName, displayEmail } = hideUsernameAndEmail(mcname, email, d);
