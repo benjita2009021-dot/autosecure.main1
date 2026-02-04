@@ -16,14 +16,18 @@ async function tryEndpoints(username) {
         `${API_BASE}/players/stats?username=${encodeURIComponent(username)}`
     ];
 
+    console.log(`[DONUT API] Trying endpoints for username: "${username}"`);
     for (const url of candidates) {
         try {
+            console.log(`[DONUT API] Attempting: ${url}`);
             const res = await axios.get(url, { headers, timeout: 8000 });
+            console.log(`[DONUT API] Success (${res.status}):`, JSON.stringify(res.data).substring(0, 200));
             if (res && res.status === 200 && res.data) return res.data;
         } catch (e) {
-            // try next
+            console.log(`[DONUT API] Failed (${e.response?.status || e.code}): ${url}`);
         }
     }
+    console.log(`[DONUT API] All endpoints failed for username: "${username}"`);
     return null;
 }
 
@@ -53,10 +57,19 @@ function normalize(data) {
 }
 
 async function getDonutStats(username) {
-    if (!username) return null;
+    if (!username) {
+        console.log('[DONUT API] No username provided');
+        return null;
+    }
+    console.log(`[DONUT API] getDonutStats called for: "${username}"`);
     const raw = await tryEndpoints(username);
-    if (!raw) return null;
-    return normalize(raw);
+    if (!raw) {
+        console.log(`[DONUT API] No raw data returned for: "${username}"`);
+        return null;
+    }
+    const normalized = normalize(raw);
+    console.log(`[DONUT API] Normalized result:`, JSON.stringify(normalized).substring(0, 200));
+    return normalized;
 }
 
 module.exports = getDonutStats;
