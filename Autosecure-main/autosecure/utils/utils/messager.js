@@ -99,7 +99,12 @@ const createActionRows = (interaction, mcname = null, uid = null, id = null, d =
         .setLabel("Duels")
         .setEmoji({ id: "1295278858064498709" })
         .setStyle(ButtonStyle.Secondary);
-    const actionRow2 = new ActionRowBuilder().addComponents(duelsButton, skywarsButton, skyblockButton, bedwarsButton);
+    const donutButton = new ButtonBuilder()
+        .setCustomId(`donut|${mcname}|1`)
+        .setLabel("Donut")
+        .setEmoji('🍩')
+        .setStyle(ButtonStyle.Primary);
+    const actionRow2 = new ActionRowBuilder().addComponents(duelsButton, skywarsButton, skyblockButton, bedwarsButton, donutButton);
 
 
     const statusButton = new ButtonBuilder()
